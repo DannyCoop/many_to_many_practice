@@ -18,7 +18,21 @@ class Tourist
     end
 
     def trips
-        Trip.all.select {|trip| self == trip.tourist}
+        Trip.all.select do |trip| 
+            self == trip.tourist
+        end
+    end
+
+    def landmarks
+        self.trips.map {|trip| trip.landmark}
+    end
+
+    def visit_landmark(landmark)
+        Trip.new(landmark, self)
+    end
+
+    def never_visited
+        Landmark.all - self.landmarks
     end
 
 end
