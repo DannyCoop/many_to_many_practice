@@ -1,1 +1,10 @@
-# put your Landmark model here
+class Landmark
+    attr_reader :name, :city
+
+    def initialize(name, city)
+        @name = name
+        @city = city
+    end
+
+
+end
